@@ -30,10 +30,11 @@
     <div class="volunteer-form-wrapper">
         <div class="volunteer-form-background">
             <section class="volunteer-form-section">
-                @if (TempData["Success"] != null)
+                @if (TempData["VolunteerSuccess"] is string vm)
                 {
-                    <div class="alert alert-success">@TempData["Success"]</div>
+                    <div class="alert alert-success">@vm</div>
                 }
+
 
                 <form class="volunteer-form" method="post" asp-action="SubmitVolunteer">
                     <h2>Volunteer Application Form</h2>

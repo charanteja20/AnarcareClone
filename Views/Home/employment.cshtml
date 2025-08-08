@@ -22,37 +22,48 @@
             </p>
         </div>
     </section>
-</main>
-
 
     <div class="form-wrapper">
-  <div class="form-wrapper-background">
-    <section class="employment-form-section">
-      <form class="employment-form" method="post" asp-action="SubmitEmployment" enctype="multipart/form-data">
-        <h2>Employment Application form</h2>
+      <div class="form-wrapper-background">
+        <section class="employment-form-section">
 
-        <label for="FullName">Name</label>
-        <input type="text" id="FullName" name="FullName" placeholder="Enter your full name.." required />
+          @* Page-scoped success message *@
+         @if (TempData["EmploymentSuccess"] is string em)
+{
+    <div class="alert alert-success">@em</div>
+}
 
-        <label for="Email">Email</label>
-        <input type="email" id="Email" name="Email" placeholder="e.g., example@domain.com" required />
 
-        <label for="Phone">Phone number</label>
-        <input type="tel" id="Phone" name="Phone" placeholder="e.g., (123) 456-7890" required />
+          <form class="employment-form"
+                method="post"
+                asp-action="SubmitEmployment"
+                asp-controller="Home"
+                enctype="multipart/form-data">
+              @Html.AntiForgeryToken()
 
-        <label for="Position">Position applied for</label>
-        <input type="text" id="Position" name="Position" placeholder="e.g., Registered Nurse, Doctor" required />
+              <h2>Employment Application form</h2>
 
-        <label for="Comments">Comments</label>
-        <textarea id="Comments" name="Comments" placeholder="Let us know more about you, your experience, or availability.."></textarea>
+            <label for="FullName">Name</label>
+            <input type="text" id="FullName" name="FullName" placeholder="Enter your full name.." required />
 
-        <label for="resume">Upload your resume</label>
-        <input type="file" id="resume" name="resume" />
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" placeholder="e.g., example@domain.com" required />
 
-        <button type="submit" class="submit-btn">SUBMIT</button>
-      </form>
-    </section>
-  </div>
-</div>
+            <label for="Phone">Phone number</label>
+            <input type="tel" id="Phone" name="Phone" placeholder="e.g., (123) 456-7890" required />
 
+            <label for="Position">Position applied for</label>
+            <input type="text" id="Position" name="Position" placeholder="e.g., Registered Nurse, Doctor" required />
+
+            <label for="Comments">Comments</label>
+            <textarea id="Comments" name="Comments" placeholder="Let us know more about you, your experience, or availability.."></textarea>
+
+            <label for="resume">Upload your resume</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" />
+
+            <button type="submit" class="submit-btn">SUBMIT</button>
+          </form>
+        </section>
+      </div>
+    </div>
 </main>

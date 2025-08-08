@@ -24,11 +24,13 @@
     <div class="referrals-form-wrapper">
         <div class="referrals-form-background">
             <section class="referrals-form-section">
-                @if (TempData["Success"] != null)
+                @if (TempData["ReferralSuccess"] is string rm)
                 {
-                    <div class="alert alert-success">@TempData["Success"]</div>
+                    <div class="alert alert-success">@rm</div>
                 }
+
                 <form class="referrals-form" method="post" asp-action="SubmitReferral">
+                    @Html.AntiForgeryToken()
                     <h2>Patient's Referral Form</h2>
 
                     <label for="PatientName">Patient’s Name</label>

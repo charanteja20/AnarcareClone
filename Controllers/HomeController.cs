@@ -52,6 +52,7 @@ namespace AnarcareWeb.Controllers
 
         // ----------- Referral Form -----------
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult SubmitReferral(IFormCollection form)
         {
             // This logic remains unchanged
@@ -72,18 +73,18 @@ namespace AnarcareWeb.Controllers
                 SubmittedAt = DateTime.Now
             };
 
-            if (ModelState.IsValid)
-            {
-                _context.Referrals.Add(referral);
-                _context.SaveChanges();
-                TempData["Success"] = "Referral submitted successfully!";
-                return RedirectToAction("Referrals");
-            }
-            return View("~/Views/Home/referrals.cshtml", referral);
+            if (!ModelState.IsValid) return View("referrals", referral);
+
+            _context.Referrals.Add(referral);
+            _context.SaveChanges();
+
+            TempData["ReferralSuccess"] = "Referral submitted successfully!";
+            return RedirectToAction("Referrals");
         }
 
         // ----------- Employment Form (Corrected and Cleaned) -----------
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> SubmitEmployment(IFormCollection form, IFormFile resume)
         {
             var employment = new Employment
@@ -121,24 +122,24 @@ namespace AnarcareWeb.Controllers
             _context.Employments.Add(employment);
             await _context.SaveChangesAsync();
 
-            TempData["Success"] = "Thank you for applying!";
+            TempData["EmploymentSuccess"] = "Thank you for applying! We'll review your application and get back to you soon.";
             return RedirectToAction("Employment");
         }
 
 
         // ----------- Volunteer Form -----------
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult SubmitVolunteer(Volunteer volunteer)
         {
-            if (ModelState.IsValid)
-            {
-                volunteer.SubmittedAt = DateTime.Now;
-                _context.Volunteers.Add(volunteer);
-                _context.SaveChanges();
-                TempData["Success"] = "Thank you for volunteering!";
-                return RedirectToAction("Volunteer");
-            }
-            return View("volunteer", volunteer);
+            if (!ModelState.IsValid) return View("volunteer", volunteer);
+
+            volunteer.SubmittedAt = DateTime.Now;
+            _context.Volunteers.Add(volunteer);
+            _context.SaveChanges();
+
+            TempData["VolunteerSuccess"] = "Thank you for volunteering!";
+            return RedirectToAction("Volunteer");
         }
 
         
