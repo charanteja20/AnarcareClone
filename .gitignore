@@ -367,4 +367,9 @@ FodyWeavers.xsd
 appsettings.Development.json
 appsettings.Production.json
 *.pfx
-*.key 
+*.key bin/
+obj/
+.vs/
+wwwroot/videos/
+wwwroot/images/raw/
+wwwroot/images/large/
