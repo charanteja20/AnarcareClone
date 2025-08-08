@@ -1,0 +1,39 @@
+@model IEnumerable<AnarcareWeb.ViewModels.SafeVolunteerViewModel>
+
+@{
+    ViewData["Title"] = "Volunteer Forms";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Volunteer Submissions</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No volunteer submissions found.</div>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Availability</th>
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.Name</td>
+                <td>@v.Email</td>
+                <td>@v.Phone</td>
+                <td>@v.Availability</td>
+                <td>@v.SubmittedAtRaw</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

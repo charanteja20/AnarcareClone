@@ -1,0 +1,39 @@
+@model IEnumerable<AnarcareWeb.Models.ContactMessage>
+
+@{
+    ViewData["Title"] = "Contact Messages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Contact Form Submissions</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        No contact form submissions available.
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var msg in Model)
+            {
+                <tr>
+                    <td>@msg.Name</td>
+                    <td>@msg.Email</td>
+                    <td>@msg.Phone</td>
+                    <td>@msg.Message</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

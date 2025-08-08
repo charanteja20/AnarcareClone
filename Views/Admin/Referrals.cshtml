@@ -1,0 +1,42 @@
+@model IEnumerable<AnarcareWeb.Models.Referral>
+
+@{
+    ViewData["Title"] = "Referral Forms";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Referral Submissions</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No referral submissions found.</div>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Referrer Name</th>
+                <th>Patient Name</th>
+                <th>Phone</th>
+                <th>Services Needed</th>
+                <th>Comments</th>
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.ReferrerName</td>
+                <td>@r.PatientName</td>
+                <td>@r.Phone</td>
+                <td>@r.ServicesNeeded</td>
+                <td>@r.Comments</td>
+                <td>@r.SubmittedAt.ToString("g")</td>
+            </tr>
+        }
+        </tbody>
+        
+    </table>
+}

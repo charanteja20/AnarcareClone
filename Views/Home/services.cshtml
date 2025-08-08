@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Our Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="services-main">
+    <section class="services-section">
+
+        <!-- Phone Number -->
+        <div class="services-phone-wrapper">
+            <a href="tel:7133301964" class="services-phone-link">(713) 330-1964</a>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="global-heading">Our Services</h1>
+
+        <!-- Service Cards -->
+        <div class="services-cards">
+            <a asp-controller="Home" asp-action="hospicecare" class="service-card">
+                <img src="~/images/aboutus_2.webp" alt="Hospice Care" />
+                <div class="service-label">Hospice Care</div>
+            </a>
+
+            <a asp-controller="Home" asp-action="homehealth" class="service-card">
+                <img src="~/images/home_1.webp" alt="Home Health" />
+                <div class="service-label">Home Health</div>
+            </a>
+        </div>
+    </section>
+</main>

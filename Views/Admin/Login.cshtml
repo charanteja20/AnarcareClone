@@ -1,0 +1,21 @@
+@model AnarcareWeb.ViewModels.AdminLoginViewModel
+@{
+    Layout = "~/Views/Shared/_AdminLoginLayout.cshtml";
+}
+
+<h2>Admin Login</h2>
+
+<form method="post" asp-action="Login">
+    <label>Username:</label>
+    <input asp-for="Username" class="form-control" required />
+
+    <label>Password:</label>
+    <input asp-for="Password" type="password" class="form-control" required />
+
+    <button type="submit" class="btn btn-primary mt-2">Login</button>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-2">@ViewBag.Error</div>
+    }
+</form>

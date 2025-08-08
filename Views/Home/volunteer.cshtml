@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Volunteers";
+    ViewData["BodyClass"] = "volunteer-page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="volunteer-container">
+    <!-- HERO SECTION -->
+    <section class="volunteer-hero">
+        <div class="volunteer-overlay-elements">
+            <div class="volunteer-phone-badge">(713) 330-1964</div>
+            <h1 class="volunteer-title">Volunteers</h1>
+        </div>
+    </section>
+
+    <!-- INTRO PARAGRAPH SECTION -->
+    <section class="volunteer-intro">
+        <div class="volunteer-text" data-aos="fade-up">
+            <p>
+                At <strong>Anarcare Home Health & Hospice</strong>, our volunteers play a vital role in providing compassionate support to our patients and their families. Their work includes running errands, preparing meals, offering companionship, and providing spiritual comfort.
+                <br /><br />
+                Volunteers are carefully screened, trained, and given flexibility in scheduling. Retired professionals are welcome. 5% of our budget is allocated to volunteer support.
+                <br /><br />
+                Complete the form below to join our volunteer team!
+            </p>
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <div class="volunteer-form-wrapper">
+        <div class="volunteer-form-background">
+            <section class="volunteer-form-section">
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success">@TempData["Success"]</div>
+                }
+
+                <form class="volunteer-form" method="post" asp-action="SubmitVolunteer">
+                    <h2>Volunteer Application Form</h2>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="Name" placeholder="Enter your full name.." required />
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="Email" placeholder="e.g., example@domain.com" required />
+
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone" name="Phone" placeholder="e.g., (123) 456-7890" required />
+
+                    <label for="availability">Availability</label>
+                    <textarea id="availability" name="Availability" placeholder="Days/times you're available.." required></textarea>
+
+                    <button type="submit" class="volunteer-submit-btn">SUBMIT</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</main>

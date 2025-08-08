@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Employment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="employment-container">
+    <!-- HERO SECTION -->
+    <section class="employment-hero">
+        <div class="employment-overlay-elements">
+            <div class="employment-phone-badge">(713) 330-1964</div>
+            <h1 class="employment-title">Employment</h1>
+        </div>
+    </section>
+
+    <!-- INTRO PARAGRAPH SECTION -->
+    <section class="employment-intro">
+        <div class="employment-text" data-aos="fade-up">
+            <p>
+                The employees at <strong>Anarcare Home Health & Hospice</strong> work hard each day to positively 
+                impact others’ lives. Our professionals include nurses, doctors, trained volunteers, chaplains, 
+                social workers, home health care aides, and administrative support.
+            </p>
+        </div>
+    </section>
+</main>
+
+
+    <div class="form-wrapper">
+  <div class="form-wrapper-background">
+    <section class="employment-form-section">
+      <form class="employment-form" method="post" asp-action="SubmitEmployment" enctype="multipart/form-data">
+        <h2>Employment Application form</h2>
+
+        <label for="FullName">Name</label>
+        <input type="text" id="FullName" name="FullName" placeholder="Enter your full name.." required />
+
+        <label for="Email">Email</label>
+        <input type="email" id="Email" name="Email" placeholder="e.g., example@domain.com" required />
+
+        <label for="Phone">Phone number</label>
+        <input type="tel" id="Phone" name="Phone" placeholder="e.g., (123) 456-7890" required />
+
+        <label for="Position">Position applied for</label>
+        <input type="text" id="Position" name="Position" placeholder="e.g., Registered Nurse, Doctor" required />
+
+        <label for="Comments">Comments</label>
+        <textarea id="Comments" name="Comments" placeholder="Let us know more about you, your experience, or availability.."></textarea>
+
+        <label for="resume">Upload your resume</label>
+        <input type="file" id="resume" name="resume" />
+
+        <button type="submit" class="submit-btn">SUBMIT</button>
+      </form>
+    </section>
+  </div>
+</div>
+
+</main>

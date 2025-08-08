@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Career Opportunities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="career-main-v2">
+    <section class="career-section-v2">
+
+        <!-- Phone Number -->
+        <div class="career-phone-wrapper">
+            <a href="tel:7133301964" class="career-phone-link">(713) 330-1964</a>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="career-heading-v2">Join our Team</h1>
+
+        <!-- Career Cards -->
+        <div class="career-cards-v2">
+            <a asp-controller="Home" asp-action="employment" class="career-card-v2">
+                <img src="~/images/Employment.webp" alt="Employment at Anarcare" />
+                <div class="career-label-v2">Careers</div>
+            </a>
+
+            <a asp-controller="Home" asp-action="volunteer" class="career-card-v2">
+                <img src="~/images/getty-images-WctYsI5EksE-unsplash.webp" alt="Volunteering at Anarcare" />
+                <div class="career-label-v2">Volunteers</div>
+            </a>
+        </div>
+    </section>
+</main>

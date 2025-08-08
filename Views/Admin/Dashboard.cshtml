@@ -1,0 +1,47 @@
+@model AnarcareWeb.ViewModels.AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Dashboard Overview</h2>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5>Contact Messages</h5>
+                <p class="display-6">@Model.TotalContact</p>
+                <a href="/Admin/ContactMessages" class="btn btn-light btn-sm">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5>Volunteers</h5>
+                <p class="display-6">@Model.TotalVolunteer</p>
+                <a href="/Admin/Volunteers" class="btn btn-light btn-sm">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-body">
+                <h5>Referrals</h5>
+                <p class="display-6">@Model.TotalReferral</p>
+                <a href="/Admin/Referrals" class="btn btn-light btn-sm">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-body">
+                <h5>Employment</h5>
+                <p class="display-6">@Model.TotalEmployment</p>
+                <a href="/Admin/Employment" class="btn btn-light btn-sm">View All</a>
+            </div>
+        </div>
+    </div>
+</div>

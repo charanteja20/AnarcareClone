@@ -1,0 +1,93 @@
+@* @model IEnumerable<AnarcareWeb.Models.Employment>
+
+@{
+    ViewData["Title"] = "Employment Applications";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Employment Applications</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Position</th>
+            <th>Comments</th>
+            <th>Resume</th>
+            <th>Submitted At</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.FullName</td>
+            <td>@e.Email</td>
+            <td>@e.Phone</td>
+            <td>@e.Position</td>
+            <td>@e.Comments</td>
+            <td>
+                @if (!string.IsNullOrEmpty(e.ResumeFileName))
+                {
+                    <a href="~/resumes/@e.ResumeFileName" target="_blank">View Resume</a>
+                }
+                else
+                {
+                    <span class="text-muted">No Resume</span>
+                }
+            </td>
+            <td>@e.SubmittedAt.ToString("g")</td>
+        </tr>
+    }
+    </tbody>
+</table> *@
+
+@model IEnumerable<AnarcareWeb.Models.Employment>
+
+@{
+    ViewData["Title"] = "Employment Applications";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Employment Applications</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Position</th>
+            <th>Comments</th>
+            <th>Resume</th>
+            <th>Submitted At</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var e in Model)
+    {
+       <tr>
+    <td>@e.FullName</td>
+    <td>@e.Email</td>
+    <td>@e.Phone</td>
+    <td>@e.Position</td>
+    <td>@e.Comments</td>
+    
+    <td>
+        @if (!string.IsNullOrEmpty(e.ResumeUrl))
+        {
+            <a href="@e.ResumeUrl" target="_blank" class="btn btn-primary btn-sm">View Resume</a>
+        }
+        else
+        {
+            <span class="text-muted">No Resume</span>
+        }
+    </td>
+    
+    <td>@e.SubmittedAt.ToString("g")</td>
+</tr>
+    }
+    </tbody>
+</table>
